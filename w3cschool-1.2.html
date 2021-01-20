@@ -1,0 +1,96 @@
+<html>
+  <meta charset="utf-8" />
+  <head>
+    <title>javascript概述</title>
+    <script src="demo.js"></script>
+    <script>
+      var x = "你好 W3Cschool";
+      document.write(x);
+    </script>
+    <script>
+      var hello = "hello world";
+      var age = 21;
+      var live = true;
+      var girlfriend = null;
+      var favsong = undefined;
+      var Car = {
+        name: "奔驰",
+        atatus: "漏油",
+      };
+    </script>
+    <script>
+      typeof undefined === "undefined"; //true
+      typeof true === "boolean"; //true
+      typeof "42" === "number"; //true
+      typeof {
+        lift: 42,
+      } === "object"; //true
+      typeof null === "object"; //true
+    </script>
+    <script>
+      var a = undefined; //或者var a = null;
+    </script>
+  </head>
+  <body>
+    <h2 id="myH1"></h2>
+    <p id="myP"></p>
+    <script>
+      document.write("Hello W3Cschool!");
+      document.write("<h1>Hello W3Cschool!</h1>");
+      //输出标题
+      document.getElementById("myH1").innerHTML = "欢迎来到我的主页";
+      //输出段落
+      document.getElementById("myP").innerHTML = "这是我的第一个段落";
+      /*上面的这些代码
+      会输出一个标题和一个段落
+      并将代表主页的开始*/
+      var x = 3;
+      var y = 4;
+      x = y;
+      //这时 x 的值为4lock
+    </script>
+    <script>
+      if (!undefined) {
+        console.log("undefined is false");
+      } //undefined is false
+      if (!null) {
+        console.log("null is false");
+      } //null is false
+      undefined == null; //true
+    </script>
+    <script>
+      if ("") {
+        console.log("true");
+      } //没有任何输出
+      if ([]) {
+        console.log("true");
+      } //true
+      if ({}) {
+        console.log("true");
+      } //true
+      var x1 = 34.0; //使用小数点来写
+      var x2 = 34; //不使用小数点来写
+      document.write(x1);
+      document.write(x2);
+      //这个案例中 x1 与 x2 是完全相等的
+      var y = 123e5; //12300000
+      var z = 123e-5; //0.00123
+      document.write(y);
+      document.write(z);
+      var carname = "Volvo XC60";
+      var carname = "Volvo XC60";
+      var answer = "it`s alright";
+      var answer = "He is called 'Loen'";
+      var answer = 'He si called "Loen"';
+      var sayHello = "你好 W3Cschool! '我是一名JavaScript程序员.'";
+      document.write(sayHello);
+    </script>
+    <script>
+      var x3 = 12 + 3;
+      document.write(x3); //-> 15
+      var x4 = 10;
+      var y4 = x4 + 7 + 20 + 45 + 6548;
+      document.write(y4); //-> 6630
+    </script>
+  </body>
+</html>
