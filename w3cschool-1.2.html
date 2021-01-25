@@ -294,6 +294,10 @@
           myArray.push(i);
         }
       }
+      var myArray = [];
+      for (var x = 1; x <= 9; x = x + 2) {
+        myArray.push(x);
+      }
     </script>
     <script>
       var x = "",
@@ -303,6 +307,115 @@
         i++;
       }
       document.write(x);
+    </script>
+    <script>
+      var contacts = [
+        {
+        "firstName": "Akira",
+        "lastName": "Laine",
+        "number": "0543236543",
+        "likes": ["Pizza", "Coding", "Brownie Points"]
+        },
+        {
+        "firstName": "Harry",
+        "lastName": "Potter",
+        "number": "0994372684",
+        "likes": ["Hogwarts", "Magic", "Hagrid"]
+        },
+        {
+        "firstName": "Sherlock",
+        "lastName": "Holmes",
+        "number": "0487345643",
+        "likes": ["Intriguing Cases", "Violin"]
+        }
+        {
+        "firstName": "Kristian",
+        "lastName": "Vos",
+        "number": "unknown",
+        "likes": ["Javascript", "Gaming", "Foxes"]
+        }
+        ];
+        function lookUpProfile(firstName, prop){
+            var result;
+            for (var i = 0; i < contacts.length; i++) {
+                if (contacts[i]['firstName'] === firstName) {
+                    result = contacts[i];
+                }
+            }
+            // 如果 result 不存在，表示未找到指定的 firstName
+            if (result) {
+                if (result[prop]) {
+                    return result[prop];
+                } else {
+                    return 'No such property';
+                }
+                // 此步可简化为：
+                // return result[prop] || 'No such property';
+            } else {
+                return 'No such contact';
+            }
+        }
+        lookUpProfile("Akira", "likes");
+    </script>
+    <script>
+      var x = "",
+        i = 0;
+      do {
+        x = x + "The number is " + i + "<br />";
+        i++;
+      } while (i < 5);
+      document.write(x);
+    </script>
+    ]
+    <script>
+      var x = "";
+      for (i = 0; i < 10; i++) {
+        if (i == 3) {
+          break;
+        }
+        x = x + "The number is " + i + "<br />";
+      }
+      document.write(x);
+    </script>
+    <script>
+      var x = "";
+      for (i = 0; i <= 10; i++) {
+        if (i == 3) continue;
+        x = "数值是： " + i + "<br />";
+        document.write(x);
+      }
+      function golfScore(par, strokes) {
+        if (strokes == 1) {
+          return "Hole-in-one!";
+        } else if (strokes <= par - 2) {
+          return "Eagle";
+        } else if (strokes == par - 1) {
+          return "Birdie";
+        } else if (strokes == par) {
+          return "Par";
+        } else if (strokes == par + 1) {
+          return "Bogey";
+        } else if (strokes == par + 2) {
+          return "Double Bogey";
+        } else if (strokes >= par + 3) {
+          return "Go Home!";
+        }
+        return "Change Me";
+      }
+      golfScore(5, 4);
+      top: for (var i = 0; i < 3; i++) {
+        for (var j = 0; j < 3; j++) {
+          if (i === 1 && j === 1) continue top;
+          console.log("i=" + i + ", j=" + j);
+        }
+      }
+      // i=0, j=0
+      // i=0, j=1
+      // i=0, j=2
+      // i=1, j=0
+      // i=2, j=0
+      // i=2, j=1
+      // i=2, j=2
     </script>
   </body>
 </html>
