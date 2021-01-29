@@ -2,6 +2,17 @@
   <meta charset="utf-8" />
   <head>
     <title>javascript概述</title>
+    <style>
+      #tip {
+        color: red;
+      }
+
+      div {
+        border: 1px solid #999;
+        width: 200px;
+        height: 200px;
+      }
+    </style>
     <script src="demo.js"></script>
     <script>
       var x = "你好 W3Cschool";
@@ -30,6 +41,18 @@
     <script>
       var a = undefined; //或者var a = null;
     </script>
+    <script>
+      function open_win() {
+        window.open("http://www.w3cschool.cn");
+      }
+      function openWin() {
+        myWindow = window.open("", "", "width=200,height=100");
+        myWindow.document.write("<p>这是'我的窗口'</p>");
+        myWindow.focus();
+      }
+    </script>
+    <p>点击按钮，3 秒后会弹出 "Hello"。</p>
+    <button onclick="myFunction()">点我</button>
   </head>
   <body>
     <h2 id="myH1"></h2>
@@ -328,12 +351,12 @@
         "number": "0487345643",
         "likes": ["Intriguing Cases", "Violin"]
         }
-        {
+      {
         "firstName": "Kristian",
         "lastName": "Vos",
         "number": "unknown",
         "likes": ["Javascript", "Gaming", "Foxes"]
-        }
+        },
         ];
         function lookUpProfile(firstName, prop){
             var result;
@@ -443,6 +466,548 @@
         document.write(name + "  年龄是:" + age + " 岁");
       }
       sayHello("Loen", 28);
+      for (var i = 0; i <= 9; i++) {
+        if (i % 2 !== 0) {
+          myArray.push(i);
+        }
+      }
+      var carName = "奔驰";
+      function myFunction() {
+        var carName = "大众";
+        document.write(carName); //carName值为大众
+      }
+    </script>
+    <p>在 HTML 中, 所有全局变量都会成为 window 变量。</p>
+    <p id="demo"></p>
+    <script>
+      myFunction();
+      document.getElementById("demo").innerHTML =
+        "我可以显示 " + window.carName;
+      function myFunction() {
+        carName = "大众";
+      }
+      function sum(a, b) {
+        return a + b;
+      }
+      function myFunction(a, b) {
+        return a * b;
+      }
+      var x = myFunction(5, 6);
+      alert(x); //x=30
+      function addNumbers(a, b) {
+        var c = a + b;
+        return c;
+      }
+      alert(addNumbers(40, 2)); //->42
+      function rectarea(x, y) {
+        return x * y;
+      }
+      alert("Hello\nHow are you?");
+      var user = prompt("请输入你的名字:");
+      alert(user);
+      var name = prompt("你的名字是：");
+      console.log(name);
+      var result = confirm("你确定要离开这个页面?");
+      if (result == true) {
+        alert("感谢你的光临!");
+      } else {
+        alert("感谢你继续使用我们的服务!");
+      }
+      var person = {
+        name: "John",
+        age: 31,
+        favColor: "green",
+        height: 183,
+      };
+      var person = {
+        name: "John",
+        age: 31,
+        favColor: "green",
+        height: 183,
+      };
+      var x = person.age;
+      var y = person["age"];
+      var course = { name: "JS", lessons: 54 };
+      document.write(course.name.length);
+      // ->2
+      function demo() {
+        var a = { name: "w3cschool" };
+        return a.name.length;
+      }
+      demo(); //demo->9
+      var ourDog = {
+        name: "Camper",
+        legs: 4,
+        tails: 1,
+        friends: ["everything!"],
+      };
+      ourDog.name = "Happy Camper";
+      ourDog["name"] = "Happy Camper";
+      var ourDog = {
+        name: "Camper",
+        legs: 4,
+        tails: 1,
+        friends: ["everything!"],
+      };
+      ourDog.bark = "bow-wow";
+      // 等价于 ourDog['bark'] = "bow-wow";
+      var ourDog = {
+        name: "Camper",
+        legs: 4,
+        tails: 1,
+        friends: ["everything!"],
+      };
+      var c1 = ourDog["tails"]; // c1 等于 1
+      delete ourDog["tails"]; // 等价于 delete ourDog.tails
+      var c2 = ourDog["tails"]; // c2 等于 undefined
+      var message = "Hello world!";
+      var x = message.toUpperCase();
+      var myObj = {
+        name: "Loen",
+        age: "28",
+        eat: function () {
+          return "I'm eating";
+        },
+      };
+      myObj["name"]; // Loen
+      var a = "age";
+      myObj[a]; // 还可以用变量访问对象属性, 这里返回 28
+      myObj["eat"](); // 返回 I'm eating
+      var myDog = {
+        name: "w3cschool",
+        legs: 11,
+        tails: 12,
+        friends: ["zhangsan", "lisi", "wangwu"],
+      };
+      function person(firstname, lastname, age, eyecolor) {
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.age = age;
+        this.eyecolor = eyecolor;
+      }
+      var myFather = new person("John", "Doe", 50, "blue");
+      var myMother = new person("Sally", "Rally", 48, "green");
+      document.write(myFather.age); // -> 50
+      document.write(myMother.name); // -> Sally
+      function person(name, age) {
+        this.name = name;
+        this.age = age;
+      }
+      var John = new person("John", 25);
+      var Loen = new person("Loen", 28);
+      var John = {
+        name: "John",
+        age: 25,
+      };
+      var Loen = {
+        name: "Loen",
+        age: 28,
+      };
+      document.write(Loen.age);
+      function person(name, age) {
+        this.name = name;
+        this.age = age;
+        this.changeName = function (name) {
+          this.name = name;
+        };
+      }
+
+      var p = new person("Loen", 28);
+      p.changeName("John");
+      function person(name, age) {
+        this.name = name;
+        this.age = age;
+        this.yearOfBirth = bornYear; // 关联 bornYear 函数
+      }
+      function bornYear() {
+        return new Date().getFullYear() - this.age;
+      }
+      function person(name, age) {
+        this.name = name;
+        this.age = age;
+        this.yearOfBirth = bornYear;
+      }
+      function bornYear() {
+        return new Date().getFullYear() - this.age;
+      }
+      var p = new person("Loen", 29);
+      document.write(p.yearOfBirth());
+      var mycars = new Array();
+      mycars[0] = "Saab";
+      mycars[1] = "Volvo";
+      mycars[2] = "BMW";
+      mycars[3] = "Lincoln";
+      var name = myCars[0];
+      mycars[0] = "Opel";
+      document.write(mycars[0]);
+      var courses = ["HTML", "CSS", "JS"];
+      document.write(courses.length);
+      var a = [];
+      a[0] = "zero";
+      a[1] = "one";
+      a.push("zero"); // 在末尾添加一个元素.
+      a.push("one", "two"); // 再添加两个元素.
+      var oneDown = [1, 4, 6].pop(); // 现在oneDown的值为6数组变成了[1, 4]
+      var oneDown = [1, 4, 6].shift(); // 现在 oneDown 的值为 1 ，数组变成了 [4, 6]
+      var a = ["zero"];
+      a.unshift("one"); //  a=["one", "zero"]
+      var numbers = [64, 45, 72, 11, 49];
+      function myFunction(item, index) {
+        demo.innerHTML =
+          demo.innerHTML + "index[" + index + "]: " + item + "<br>";
+      }
+      numbers.forEach(myFunction);
+
+      var fruits = ["香蕉", "橙子", "苹果", "甜瓜", "苹果"];
+      var a = fruits.indexOf("苹果");
+      var b = fruits.indexOf("樱桃"); //a=2 b=-1
+      var fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
+      var citrus = fruits.slice(1, 3);
+    </script>
+    <p>fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"]</p>
+    <p>fruits.slice(1,3), 结果是:<span id="demo1"></span></p>
+    <p>fruits.slice(-3,-1), 结果是:<span id="demo2"></span></p>
+    <button onclick="myFunction()">点我</button>
+    <script>
+      function myFunction() {
+        var fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
+        var citrus = fruits.slice(1, 3);
+        var myBest = fruits.slice(-3, -1);
+        var x = document.getElementById("demo1");
+        x.innerHTML = citrus;
+        var y = document.getElementById("demo2");
+        y.innerHTML = myBest;
+      }
+    </script>
+    <script>
+      var colors = ["red", "blue", "green", "yellow", "pink"];
+      var getcolor = colors.slice(-3);
+      var x = getcolor[1];
+      document.write(x);
+      var txt = new String("string");
+      var txt = "string"; // 或者更简单方式：
+      var str = "Hello world, welcome to the w3cschool.";
+      var n = str.indexOf("welcome"); // 13
+      var c = str.indexOf("loen"); // -1
+      var str = "Mr Blue has a blue house and a blue car and a blue hat";
+      var n = str.replace("blue", "red"); //Mr Blue has a red house and a blue car and a blue hat
+      var c = str.replace(/blue/g, "red"); //Mr red has a red house and a red car and a red hat
+      var str = "Hello world!";
+      document.write(str.substring(3) + "<br>");
+      document.write(str.substring(3, 7));
+      var anyString = "w3cschool";
+      // 输出 "w3c"
+      document.write(anyString.substring(0, 3) + "<br>");
+      document.write(anyString.substring(3, 0) + "<br>");
+      document.write(anyString.substring(3, -3) + "<br>");
+      document.write(anyString.substring(3, NaN) + "<br>");
+      document.write(anyString.substring(-2, 3) + "<br>");
+      document.write(anyString.substring(NaN, 3) + "<br>");
+      // 输出 "cho"
+      document.write(anyString.substring(4, 7) + "<br>");
+      document.write(anyString.substring(7, 4) + "<br>");
+      // 输出 ""
+      document.write(anyString.substring(4, 4) + "<br>");
+      // 输出 "w3csch"
+      document.write(anyString.substring(0, 6) + "<br>");
+      // 输出 "w3cschool"
+      document.write(anyString.substring(0, 9) + "<br>");
+      document.write(anyString.substring(0, 12));
+    </script>
+    <p>文档显示区的高度:<span id="winInnerHeight"></span></p>
+    <p>文档显示区的宽度:<span id="winInnerWidth"></span></p>
+    <br />
+    <p>
+      返回窗口的外部宽度，包含工具条与滚动条:<span id="winOuterWidth"></span>
+    </p>
+    <p>
+      返回窗口的外部高度，包含工具条与滚动条:<span id="winOuterHeight"></span>
+    </p>
+
+    <br />
+    <p>相对于屏幕窗口的x坐标:<span id="winScreenLeft"></span></p>
+    <p>相对于屏幕窗口的y坐标:<span id="winScreenTop"></span></p>
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    <script>
+      var winInnerHeight = window.innerHeight; //返回窗口的文档显示区的高度。
+      var winInnerWidth = window.innerWidth; //返回窗口的文档显示区的宽度。
+
+      var winOuterWidth = window.outerWidth; // 返回窗口的外部宽度，包含工具条与滚动条。
+      var winOuterHeight = window.outerHeight; // 返回窗口的外部高度，包含工具条与滚动条。
+
+      var winScreenLeft = window.screenLeft; // 返回相对于屏幕窗口的x坐标
+      var winScreenTop = window.screenTop; // 返回相对于屏幕窗口的y坐标
+
+      document.getElementById("winInnerHeight").innerHTML = winInnerHeight;
+      document.getElementById("winInnerWidth").innerHTML = winInnerWidth;
+      document.getElementById("winInnerHeight").innerHTML = winInnerHeight;
+      document.getElementById("winInnerWidth").innerHTML = winInnerWidth;
+
+      document.getElementById("winOuterWidth").innerHTML = winOuterWidth;
+      document.getElementById("winOuterHeight").innerHTML = winOuterHeight;
+
+      document.getElementById("winScreenLeft").innerHTML = winScreenLeft;
+      document.getElementById("winScreenTop").innerHTML = winScreenTop;
+      alert("hello world");
+      // 等价于
+    </script>
+    <form>
+      <input type="button" value="打开窗口" onclick="open_win()" />
+    </form>
+    <form>
+      <input type="button" value="打开窗口" onclick="openWin()" />
+    </form>
+
+    <p>点击按钮，3 秒后会弹出 "Hello"。</p>
+    <button onclick="myFunction()">点我</button>
+    <script>
+      function myFunction() {
+        setTimeout(function () {
+          alert("Hello");
+        }, 3000);
+      } //打开一个新窗口，3 秒后将该窗口关闭
+    </script>
+    <p>点击按钮，等待 3 秒后弹出 "Hello" 。</p>
+    <p>
+      点击第二个按钮来阻止弹出函数 myFunction 的执行。 (你必须在 3 秒前点击)
+    </p>
+
+    <button onclick="myFunction()">先点我</button>
+    <button onclick="myStopFunction()">阻止弹出</button>
+
+    <script>
+      //使用 clearTimeout() 来阻止函数的执行
+      var myVar;
+      function myFunction() {
+        myVar = setTimeout(function () {
+          alert("Hello");
+        }, 3000);
+      }
+
+      function myStopFunction() {
+        clearTimeout(myVar);
+      }
+      document.write("从 JSON 字符串中创建一个对象") / b;
+      var text =
+        '{"employees":[' +
+        '{"name":"W3Cschool","site":"http://www.w3cschool.cn" },' +
+        '{"name":"Google","site":"http://www.Google.com" },' +
+        '{"name":"Taobao","site":"http://www.taobao.com" }]}';
+      obj = JSON.parse(text);
+      document.getElementById("demo").innerHTML =
+        obj.employees[1].name + " " + obj.employees[1].site;
+      var obj = JSON.parse('{"p": 5, "s": 1.5, "t": -3}', function (k, v) {
+        if (k === "") return v; // 如果到了最顶层，则直接返回属性值，
+        return v * 2; // 否则将属性值变为原来的 2 倍。
+      });
+      console.log(obj); // 结果可以在浏览器中打开开发者工具->控制台中查看 (一般按F12可以开发者工具)
+
+      var obj = JSON.parse(
+        '{"1": 1, "2": 2,"3": {"4": 4, "5": {"6": 6}}}',
+        function (k, v) {
+          console.log(k); // 输出当前的属性名，从而得知遍历顺序是从内向外的，
+          // 最后一个属性名会是个空字符串。
+          return v; // 返回原始属性值，相当于没有传递 reviver 参数。
+        }
+      );
+      // 结果可以在浏览器中打开开发者工具->控制台中查看 (一般按F12可以开发者工具)
+
+      var str = { name: "W3Cschool", site: "https://www.w3cschool.cn" };
+      str_pretty1 = JSON.stringify(str);
+      document.write("只有一个参数情况：");
+      document.write("<br>");
+      document.write("<pre>" + str_pretty1 + "</pre>");
+      document.write("<br>");
+      str_pretty2 = JSON.stringify(str, null, 4); //使用四个空格缩进
+      document.write("使用参数情况：");
+      document.write("<br>");
+      document.write("<pre>" + str_pretty2 + "</pre>"); // pre 用于格式化输出
+
+      function update(id, prop, value) {
+        if (value !== "" && prop !== "tracks") {
+          collection[id][prop] = value;
+        }
+        if (value !== "" && prop === "tracks") {
+          collection[id][prop].push(value);
+        }
+        if (value === "") {
+          delete collection[id][prop];
+        }
+        return collection;
+      }
+      var number = Math.sqrt(4);
+      document.write(number);
+      // -> 2
+      Math.floor(45.95); // 45
+      Math.floor(45.05); // 45
+    </script>
+    <button onclick="myFunction()">点我</button>
+    <script>
+      function myFunction() {
+        var x = document.getElementById("demo");
+        x.innerHTML = Math.floor(Math.random() * 10 + 1);
+      }
+    </script>
+    <p>
+      点击按钮, getRndInteger(min, max) 会返回 0（包含）到 10（包含）到数字:
+    </p>
+    <button
+      onclick="document.getElementById('demo').innerHTML = getRndInteger(0,10)"
+    >
+      点我
+    </button>
+    <p id="demo"></p>
+    <script>
+      function getRndInteger(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+      }
+      x = Math.round(20.49); //20
+      x = Math.round(20.5); //21
+      var n = prompt("请输入一个数字:", "");
+      var answer = Math.sqrt(n);
+      alert("数字" + n + " 的平方根是: " + answer);
+      function ourFunction(ourMin, ourMax) {
+        return Math.floor(Math.random() * (ourMax - ourMin + 1)) + ourMin;
+      }
+      ourFunction(1, 9);
+
+      function randomRange(myMin, myMax) {
+        return parseInt(Math.random() * (myMax - myMin) + myMin);
+      }
+      function myAlert() {
+        alert("你好 世界");
+      }
+      setInterval(myAlert, 3000); // 每个 3 秒执行一次 myAlert
+      var d = new Date();
+      //d 存储了当前的日期和时间
+      new Date(milliseconds); // 毫秒
+      new Date(dateString); // 日期字符串
+      new Date(year, month, day, hours, minutes, seconds, milliseconds); //年，月，日，时，分，秒和毫秒
+      //Fri Jan 02 1970 08:00:00 GMT+0800 (中国标准时间)
+      var d1 = new Date(86400000);
+      //Thu Oct 19 2017 15:56:00 GMT+0800 (中国标准时间)
+      var d2 = new Date("October 19, 2017 15:56:00");
+      //Sat Jun 11 1988 11:42:00 GMT+0800 (中国标准时间)
+      var d3 = new Date(88, 5, 11, 11, 42, 0, 0);
+    </script>
+    <script>
+      function printTime() {
+        var d = new Date();
+        var hours = d.getHours();
+        var mins = d.getMinutes();
+        var secs = d.getSeconds();
+        document.body.innerHTML = hours + ":" + mins + ":" + secs;
+      }
+      setInterval(printTime, 1000); // setInterval 第二个参数单位是 毫秒
+    </script>
+    <h2 id="tip">这边显示提示</h2>
+    <hr />
+    <p onclick="clickfn()">点击我看看</p>
+    <br />
+    <input type="text" onfocus="focusfn()" onblur="blurfn()" value="获得焦点" />
+    <br /><br />
+    <div onmouseover="moverfn()" onmouseout="moutfn()" style="">
+      鼠标移动进来看看
+    </div>
+
+    <script>
+      function clickfn() {
+        document.getElementById("tip").innerHTML = "触发了点击事件";
+      }
+
+      function blurfn() {
+        document.getElementById("tip").innerHTML = "元素失去焦点";
+      }
+
+      function focusfn() {
+        document.getElementById("tip").innerHTML = "元素获得焦点";
+      }
+
+      function moverfn() {
+        document.getElementById("tip").innerHTML = "鼠标移动进来了";
+      }
+
+      function moutfn() {
+        document.getElementById("tip").innerHTML = "鼠标移开了";
+      }
+    </script>
+    <p id="demo">点击我</p>
+    <p id="date"></p>
+    <script>
+      var x = document.getElementById("demo");
+      x.onclick = function () {
+        document.getElementById("date").innerHTML = new Date();
+      };
+    </script>
+    <input type="text" id="name" onchange="change()" />
+    <script>
+      function change() {
+        var x = document.getElementById("name");
+        x.value = x.value.toUpperCase(); // 转成大写
+      }
+    </script>
+    <button id="demo">开始</button>
+
+    <script>
+      var btn = document.getElementById("demo");
+      btn.addEventListener("click", myFunction);
+
+      function myFunction() {
+        alert(Math.random());
+        btn.removeEventListener("click", myFunction);
+      }
+    </script>
+
+    <div>
+      <button onclick="prev()">上一个</button>
+      <img id="slider" src="https://www.w3cschool.cn/statics/images/1.png" />
+      <button onclick="next()">下一个</button>
+    </div>
+    <script>
+      var images = [
+        "https://www.w3cschool.cn/statics/images/1.png",
+        "https://www.w3cschool.cn/statics/images/2.png",
+        "https://www.w3cschool.cn/statics/images/3.png",
+      ];
+      var num = 0;
+
+      function next() {
+        var slider = document.getElementById("slider");
+        num++;
+        if (num >= images.length) {
+          num = 0;
+        }
+        slider.src = images[num];
+      }
+
+      function prev() {
+        var slider = document.getElementById("slider");
+        num--;
+        if (num < 0) {
+          num = images.length - 1;
+        }
+        slider.src = images[num];
+      }
+    </script>
+    <form onsubmit="return validate()" method="post">
+      Number: <input type="text" name="num1" id="num1" />
+      <br />
+      Repeat: <input type="text" name="num2" id="num2" />
+      <br />
+      <input type="submit" value="Submit" />
+    </form>
+    <script>
+      function validate() {
+        var n1 = document.getElementById("num1");
+        var n2 = document.getElementById("num2");
+        if (n1.value != "" && n2.value != "") {
+          if (n1.value == n2.value) {
+            return true;
+          }
+        }
+        alert("输入两个值不相等,请重新输入!");
+        return false;
+      }
     </script>
   </body>
 </html>
